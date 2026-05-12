@@ -39,3 +39,7 @@ Sample 4
 3. Make a script to fully sync "content" directory with "cache". Schedule it to execute every minute. Test sync.
 4. Install and run http server as user "fast-http" and make it serve "cache" filesystem. Try to create index.html file as "john" in the "content" directory and test that your http server will serve it.
 5. Make sure that only your http server is accessible from external network. Do not forget to allow active connections, ports 22 and 4200.
+
+
+Additinal Task
+Build and startup this repository: https://github.com/dvalyayevkbtu/my-booking
