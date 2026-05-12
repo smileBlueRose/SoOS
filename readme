@@ -1,0 +1,41 @@
+Sample #1
+
+1. You need to have roles like: sysadm (management of system services), dbadm (able to connect and manage database). (8 points)
+2. Make a secure storage for database files, organize regular backups of this storage. Make an audit alert if somebody tries to modify backup script or backup schedule. (8 points)
+3. Run database in restricted environment, specify limits for RAM and CPU, force database to store data in your storage. Make you database to run at the boot of the system.(8 points)
+4. Create a job to check database “pg_isready” command and restarts a database if this command is failing. (8 points)
+5. Make sure that only your database is accessible from external network. Do not forget to allow active connections, ports 22 and 4200. (8 points)
+
+
+Sample #2
+
+https://github.com/dvalyayevkbtu/payment
+
+1. You need to have roles like: sysadm (management of system services), operations (trigger build).
+2. Clone repository and create a script to build HARDENED container image following an instruction.
+3. Run your built image in the restricted environment (limits for ram and cpu) and test if it's working or not. Publish your image to public container images storage.
+4. Make a script which repeats all actions from 2 and 3 tasks: git clone, container image build, container start, check service, container delete, local git repo delete. Be sure that only operations can execute your script and each execution is logged to audit event.
+5. Make sure that only required service is available from outside: ports 22 and 4200.
+
+
+Sample #3
+
+1. You need to have roles like: sysadm (management of system services), dbops (able to connect
+   and manage database)
+2. Make a secure storage for database files, organize regular backups of this storage.
+   Make an audit alert if somebody tries to modify backup script or backup schedule.
+3. Run database in restricted environment, specify limits for RAM and cpu, force database to
+   store data in your storage. Make your database to run at the boot of the system.
+4. Create a job to check database availability using "mysqladmin ping" command and restart the
+   database if this command is failing.
+5. Make sure that only your database is accessible from external network. Do not forget to
+   allow active connections, ports 22 and 4200.
+
+
+Sample 4
+
+1. You need to have users "fast-http", "john" in the group "httpadmins". You need to have a local directory "content" for all files served by fast-http server. Make this directory editable only by httpadmins. Allow httpadmins to manage your fast-http service.
+2. Make a "cache" filesystem in the RAM, be sure that it will exist after reboot. Mount this filesystem to the http's html default directory.
+3. Make a script to fully sync "content" directory with "cache". Schedule it to execute every minute. Test sync.
+4. Install and run http server as user "fast-http" and make it serve "cache" filesystem. Try to create index.html file as "john" in the "content" directory and test that your http server will serve it.
+5. Make sure that only your http server is accessible from external network. Do not forget to allow active connections, ports 22 and 4200.
